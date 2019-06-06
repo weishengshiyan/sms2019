@@ -1,6 +1,7 @@
 package com.briup.apps.app02.web.controller;
 
 import com.briup.apps.app02.bean.Course;
+import com.briup.apps.app02.bean.extend.CourseExtends;
 import com.briup.apps.app02.service.ICourseService;
 import com.briup.apps.app02.service.imp.CourseServiceImpl;
 import com.briup.apps.app02.utils.Message;
@@ -18,6 +19,7 @@ import java.util.List;
 public class CourseController {
     @Autowired
     private ICourseService courseService;
+
 
 
     @GetMapping("/selectCourseById")
@@ -56,7 +58,13 @@ public class CourseController {
     }
 
 
+    @GetMapping("selectAll")
+    public Message selectAll(){
+
+        List<CourseExtends> list = courseService.selectAll();
+        return  MessagesUtils.success("多表查询成功",list);
 
 
+    }
 
 }

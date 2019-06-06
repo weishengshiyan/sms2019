@@ -1,7 +1,9 @@
 package com.briup.apps.app02.service.imp;
 
 import com.briup.apps.app02.bean.Course;
+import com.briup.apps.app02.bean.extend.CourseExtends;
 import com.briup.apps.app02.dao.CourseMapper;
+import com.briup.apps.app02.dao.extend.CourseExtendsMapper;
 import com.briup.apps.app02.service.ICourseService;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ import java.util.List;
 public class CourseServiceImpl implements ICourseService {
     @Resource
     private CourseMapper courseMapper;
+    @Resource
+    private CourseExtendsMapper courseExtendsMapper;
 
     @Override
     public List<Course> query(Course course) {
@@ -30,6 +34,8 @@ public class CourseServiceImpl implements ICourseService {
 
     }
 
+
+
     @Override
     public void saveAndupdata(Course course) {
         if (course.getId() == null) {
@@ -45,6 +51,15 @@ public class CourseServiceImpl implements ICourseService {
     public Course selectCourseById(Long id) {
         return courseMapper.selectCourseById(id);
     }
+
+
+
+
+    @Override
+    public List<CourseExtends> selectAll() {
+        return courseExtendsMapper.selectAll() ;
+    }
+
 }
 
 
