@@ -19,5 +19,10 @@ public interface IUserService {
     void  deleteUser(Long id) throws  Exception;
     List<User> query(User user);
 
+    //查询所有教师
+    List<User> findTeacher();
+    //查询所有学生
+    List<User> findStudent();
+
 
 }

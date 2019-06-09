@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.apps.app02.dao.extend.StudentCouserExtendMapper">
+   <select id="findAllByxk" resultMap="StudentCouserExtendresultMap">
+   select
+            sc.id,
+            sc.xk_name,
+            sc.grade,
+            sc.student_id,
+            sc.course_id,
+            u.id,
+            u.realname,
+            u.gender,
+            u.type,
+            c.id,
+            c.name,
+            c.description,
+            c.teacher_id
+            from studentCourse  sc
+            left join sms_user  u on sc.student_id= u.id
+            left join course  c  on sc.course_id=c.id
+            where sc.xk_name=#{xk_name} and type="学生";
+
+    </select>
+
+    <resultMap id="StudentCouserExtendresultMap" type="com.briup.apps.app02.bean.extend.StudentCouserExtend">
+        <id column="sc_id" property="id"/>
+        <result column="xk_name" property="xk_name"/>
+        <result column="grade" property="grade"/>
+        <association property="student" javaType="com.briup.apps.app02.bean.User">
+            <id column="student_id" property="id"/>
+            <result column="realname" property="realname"/>
+            <result column="telephone" property="telephone"/>
+            <result column="password" property="password"/>
+            <result column="gender" property="gender"/>
+        </association>
+
+        <association property="course" javaType="com.briup.apps.app02.bean.Course">
+            <id column="Course_id" property="id"/>
+            <result column="name" property="name"/>
+            <result column="description" property="description"/>
+            <result column="teacher_id" property="teacher_id"/>
+        </association>
+    </resultMap>
+
+
+
+</mapper>

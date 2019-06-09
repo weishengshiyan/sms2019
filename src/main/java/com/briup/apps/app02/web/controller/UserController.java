@@ -115,6 +115,22 @@ private IUserService iUserService;
             return  MessagesUtils.success("success",list);
 
         }
+        //查询所有教师
+        @ApiOperation("查询所有教师")
+        @GetMapping("findTeacher")
+        public Message findTeacher() {
+            List<User> list = iUserService.findTeacher();
+            return MessagesUtils.success("success", list);
+        }
+
+    //查询所有学生
+    @ApiOperation("查询所有学生师")
+    @GetMapping("findStudent")
+    public Message findStudent() {
+        List<User> list = iUserService.findStudent();
+        return MessagesUtils.success("success", list);
     }
+
+        }
 
 

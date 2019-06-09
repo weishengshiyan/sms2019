@@ -1,6 +1,7 @@
 package com.briup.apps.app02.service.imp;
 
 import com.briup.apps.app02.bean.Course;
+import com.briup.apps.app02.bean.User;
 import com.briup.apps.app02.bean.extend.CourseExtends;
 import com.briup.apps.app02.dao.CourseMapper;
 import com.briup.apps.app02.dao.extend.CourseExtendsMapper;
@@ -57,6 +58,7 @@ public class CourseServiceImpl implements ICourseService {
 
     @Override
     public List<CourseExtends> selectAll() {
+
         return courseExtendsMapper.selectAll() ;
     }
 

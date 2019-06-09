@@ -64,6 +64,16 @@
     </delete>
 
 
+   <!-- 查询所有教师-->
+    <select id="findTeacher" resultType="com.briup.apps.app02.bean.User">
+        select*from sms_user where type ="教师";
+    </select>
+
+
+    <select id="findStudent" resultType="com.briup.apps.app02.bean.User">
+        select*from sms_user where type ="学生";
+    </select>
+
 
 </mapper>
 

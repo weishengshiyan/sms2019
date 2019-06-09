@@ -26,6 +26,8 @@ public class UserServiceImpl implements IUserService {
         return userMapper.selectUserById(id);
     }
 
+
+
     @Override
     public void saveOrupdate(User user) throws  Exception {
         if (user.getId()== null) {
@@ -56,9 +58,20 @@ public class UserServiceImpl implements IUserService {
             return userMapper.query(user);
             }
 
+//查寻所有教师
+    @Override
+    public  List<User> findTeacher() {
+        return userMapper.findTeacher();
+    }
 
 
-        }
+    @Override
+    public  List<User> findStudent() {
+        return userMapper.findStudent();
+    }
+
+
+}
 
 
 

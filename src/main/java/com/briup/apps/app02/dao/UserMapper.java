@@ -18,5 +18,12 @@ public interface UserMapper {
     void    insertUser(User user);
     void    deleteUser(Long id);
 
+    //查询所有学生
+    //查询所有的教师
+    List<User> findStudent();
+    List<User> findTeacher();
+
+
+
 
 }
